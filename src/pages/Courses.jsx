@@ -64,8 +64,7 @@ export default function Courses() {
             <p className="eyebrow">Our Courses</p>
             <h1>Courses for every stage of learning.</h1>
             <p className="hero-lead">
-              From everyday school subjects to Olympiad-level practice — every course is taught with the same
-              structured, concept-first method that has built results since 2005.
+              From school subjects to Olympiad practice — taught with the same structured, concept-first method.
             </p>
             <div className="hero-cta">
               <Link className="btn btn-navy" to="/contact">
@@ -119,7 +118,6 @@ export default function Courses() {
                     <h3>{course.name}</h3>
                     <span className="course-emoji">{category.emoji}</span>
                   </div>
-                  <p className="course-detail-desc">{course.desc}</p>
                   <div className="course-meta">
                     <span className="course-meta-item">
                       <GraduationCap size={15} /> {course.level}
@@ -144,9 +142,6 @@ export default function Courses() {
           <h2 className="section-title center" style={{ color: '#fff', marginTop: 8 }}>
             The same proven method, every time.
           </h2>
-          <p className="section-lead center" style={{ color: 'rgba(255,255,255,0.72)', margin: '12px auto 0' }}>
-            Whichever course your child joins, this is the structure that turns effort into real, measurable results.
-          </p>
           <div className="centum-grid">
             {courseMethod.map((m) => (
               <Reveal key={m.step} as="div" className="centum-card">
@@ -174,7 +169,7 @@ export default function Courses() {
         <div className="container">
           <CTABanner
             title="Not sure which course fits your child?"
-            lead="Book a free demo and our team will assess your child and recommend the right course and batch."
+            lead="Book a free demo and we'll recommend the right course and batch."
           >
             <Link className="btn btn-gold" to="/contact">
               Book Free Demo

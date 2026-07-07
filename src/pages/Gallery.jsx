@@ -19,8 +19,7 @@ export default function Gallery() {
         description="Photos from Bhavani Group of Institutions — Abacus, Dance, Drawing, Music, Day Care, Sports and campus life across our Chennai centres."
       />
       <PageHero eyebrow="Gallery" title="Life across our academies.">
-        A look at our classrooms, performances and everyday moments across Abacus, Dance, Drawing, Music, Day Care,
-        Sports and our campus. Tap any photo to view it full-screen.
+        Moments from our classrooms, performances and campus. Tap any photo to view it full-screen.
       </PageHero>
 
       <section className="section" style={{ paddingTop: 48 }}>

@@ -2,10 +2,6 @@ import { Link } from 'react-router-dom'
 import SEO from '../components/common/SEO.jsx'
 import SectionHeading from '../components/common/SectionHeading.jsx'
 import InfoCard from '../components/common/InfoCard.jsx'
-import PhotoCard from '../components/common/PhotoCard.jsx'
-import ProcessTimeline from '../components/common/ProcessTimeline.jsx'
-import TestimonialCard from '../components/common/TestimonialCard.jsx'
-import FAQAccordion from '../components/common/FAQAccordion.jsx'
 import CTABanner from '../components/common/CTABanner.jsx'
 import Reveal from '../components/common/Reveal.jsx'
 import Counter from '../components/common/Counter.jsx'
@@ -60,124 +56,6 @@ const coreValues = [
         <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 10-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z" />
       </svg>
     ),
-  },
-]
-
-const whyParents = [
-  {
-    title: 'Brain Development',
-    description: 'Mental math, art and music programs that build cognitive strength early.',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7V17h8v-2.3A7 7 0 0012 2z" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Concentration',
-    description: 'Structured routines and focused class sizes that improve attention span.',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="10" />
-        <circle cx="12" cy="12" r="6" />
-        <circle cx="12" cy="12" r="2" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Confidence',
-    description: 'Regular performance opportunities — recitals, showcases and competitions.',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Academic Excellence',
-    description: 'A curriculum benchmarked against proven academic standards.',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Global Standards',
-    description: 'Teaching methods informed by international best practice.',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20z" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Expert Trainers',
-    description: 'Instructors who actively practice and teach their craft, not just supervise it.',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="9" cy="7" r="4" />
-        <path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
-        <circle cx="17" cy="7" r="3" />
-      </svg>
-    ),
-  },
-]
-
-const programs = [
-  { title: 'Abacus', description: 'Mental math mastery for early learners.' },
-  { title: 'Vedic Maths', description: 'Ancient techniques for rapid calculation.' },
-  { title: 'Phonics', description: 'Strong reading foundations for young children.' },
-  { title: 'Handwriting', description: 'Clear, confident handwriting through guided practice.' },
-]
-
-const galleryPhotos = [
-  { image: '/images/Bhavani_Abacus.png', alt: 'Classroom' },
-  { image: '/images/Bhavani_Dance.png', alt: 'Students' },
-  { image: '/images/Bhavani_Drawing.png', alt: 'Events' },
-  { image: '/images/Bhavani_Daycare.png', alt: 'Competitions' },
-  { image: '/images/Bhavani_Music.png', alt: 'Parent Meeting' },
-  { image: '/images/Bhavani_Sports_Frame.jpg', alt: 'Teacher Training' },
-  { image: '/images/Bhavani_Vanservice.png', alt: 'Award Ceremony' },
-  { image: '/images/Bhavani_Daycare.png', alt: 'Learning Activities' },
-]
-
-const testimonials = [
-  {
-    quote: "My daughter's confidence has grown so much since joining the Abacus program. The teachers genuinely care.",
-    name: 'Parent Review',
-    source: 'Chennai',
-  },
-  {
-    quote: 'The drawing studio helped me find a skill I never knew I had. The instructors push you to improve every week.',
-    name: 'Student Review',
-    source: 'Drawing & Art Studio',
-  },
-  {
-    quote: "Bhavani's curriculum and support helped us achieve over 300 admissions within our first year as a franchise.",
-    name: 'Franchise Review',
-    source: 'Branch Partner',
-  },
-]
-
-const faqs = [
-  {
-    question: 'Why choose Bhavani Group of Institutions?',
-    answer: 'Six academies under one roof, experienced faculty, and a structured methodology refined over 8+ years.',
-  },
-  {
-    question: 'How are classes conducted?',
-    answer: 'In small, structured groups on campus, following our seven-step learning methodology.',
-  },
-  {
-    question: 'Are teachers certified?',
-    answer: "Yes — every instructor is trained and certified in their academy's curriculum before teaching independently.",
-  },
-  {
-    question: 'What age groups do you teach?',
-    answer: 'Programs are available from early childhood through teenage years, with age-appropriate tracks in every academy.',
   },
 ]
 
@@ -271,29 +149,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* 5. Why Parents Choose Us */}
-      <section className="section alt">
-        <div className="container">
-          <SectionHeading eyebrow="Why Parents Choose Us" title="Six reasons families stay with us." />
-          <div className="card-grid" style={{ marginTop: 40 }}>
-            {whyParents.map((item) => (
-              <InfoCard key={item.title} icon={item.icon} title={item.title} description={item.description} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Learning Methodology */}
-      <section className="section">
-        <div className="container">
-          <SectionHeading eyebrow="How We Teach" title="Our Learning Methodology" />
-          <ProcessTimeline
-            steps={['Assessment', 'Learning Plan', 'Interactive Classes', 'Practice', 'Evaluation', 'Parent Feedback', 'Continuous Improvement']}
-          />
-        </div>
-      </section>
-
-      {/* 7. Founder Message */}
+      {/* 5. Founder Message */}
       <section className="section alt">
         <div className="container two-col reverse">
           <div>
@@ -306,100 +162,41 @@ export default function About() {
             </p>
             <div style={{ marginTop: 20 }}>
               <strong style={{ display: 'block', color: 'var(--navy)', fontFamily: "'Playfair Display',serif", fontSize: 18 }}>
-                Founder Name
+                Bhavani
               </strong>
-              <span style={{ fontSize: 13.5, color: 'var(--ink-muted)' }}>Founder &amp; Director</span>
+              <span style={{ fontSize: 13.5, color: 'var(--ink-muted)' }}>Founder &amp; Academic Director</span>
             </div>
           </div>
-          <img src="/images/Bhavani_Daycare.png" alt="Founder of Bhavani Group of Institutions" loading="lazy" />
+          <img src="/images/Bhavani_Founder.png" alt="Bhavani — Founder of Bhavani Group of Institutions" loading="lazy" />
         </div>
       </section>
 
-      {/* 8. Achievements */}
+      {/* 6. Achievements */}
       <section className="section navy">
         <div className="container">
           <SectionHeading eyebrow="Our Achievements" title="Numbers that tell our story." />
-          <div className="achieve-grid">
+          <div className="achieve-grid cols-4">
             <div className="stat">
-              <strong><Counter value="25+" /></strong>
-              <span>Learning Centres</span>
-            </div>
-            <div className="stat">
-              <strong><Counter value="10,000+" /></strong>
-              <span>Students Trained</span>
-            </div>
-            <div className="stat">
-              <strong><Counter value="50+" /></strong>
-              <span>Expert Trainers</span>
-            </div>
-            <div className="stat">
-              <strong><Counter value="8+" /></strong>
+              <strong><Counter value="15+" /></strong>
               <span>Years Experience</span>
             </div>
             <div className="stat">
-              <strong><Counter value="95%" /></strong>
-              <span>Parent Satisfaction</span>
+              <strong><Counter value="50+" /></strong>
+              <span>Active Students</span>
             </div>
             <div className="stat">
-              <strong><Counter value="100+" /></strong>
-              <span>School Partnerships</span>
+              <strong><Counter value="8" /></strong>
+              <span>Academies</span>
+            </div>
+            <div className="stat">
+              <strong><Counter value="3" /></strong>
+              <span>Chennai Branches</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 9. Programs */}
-      <section className="section">
-        <div className="container">
-          <SectionHeading eyebrow="Our Programs" title="Four flagship programs." />
-          <div className="card-grid cols-4" style={{ marginTop: 40 }}>
-            {programs.map((program) => (
-              <InfoCard key={program.title} title={program.title} description={program.description} centered />
-            ))}
-          </div>
-          <div className="center" style={{ marginTop: 32 }}>
-            <Link className="btn btn-navy" to="/academies">
-              View Programs
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 10. Gallery */}
-      <section className="section alt">
-        <div className="container">
-          <SectionHeading eyebrow="Gallery" title="A look inside our campus." />
-          <div className="card-grid cols-4" style={{ marginTop: 40 }}>
-            {galleryPhotos.map((photo, i) => (
-              <PhotoCard key={`${photo.alt}-${i}`} src={photo.image} alt={photo.alt} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 11. Testimonials */}
-      <section className="section">
-        <div className="container">
-          <SectionHeading eyebrow="Testimonials" title="What our community says." />
-          <div className="card-grid" style={{ marginTop: 40 }}>
-            {testimonials.map((t) => (
-              <TestimonialCard key={t.source} quote={t.quote} name={t.name} source={t.source} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 12. FAQ */}
-      <section className="section alt">
-        <div className="container">
-          <SectionHeading eyebrow="Frequently Asked Questions" title="Have a question?" />
-          <div style={{ marginTop: 36 }}>
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
-
-      {/* 13. CTA */}
+      {/* 7. CTA */}
       <section className="section">
         <div className="container">
           <CTABanner title="Ready to Shape Your Child's Future?" lead="Join thousands of parents who trust Bhavani Group of Institutions for quality education.">

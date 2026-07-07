@@ -42,7 +42,7 @@ const heroStats = [
 const whyPartner = [
   {
     title: 'Proven Curriculum',
-    description: 'A structured, tested curriculum across all eight academies, ready to teach from day one.',
+    description: 'Tested curriculum across all eight academies.',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M9.5 2a4.5 4.5 0 00-4.5 4.5v.5A4 4 0 003 10.5 4 4 0 005.5 14a4.5 4.5 0 004 4.5v1a2 2 0 104 0v-15A2.5 2.5 0 009.5 2z" />
@@ -51,7 +51,7 @@ const whyPartner = [
   },
   {
     title: 'Expert Training',
-    description: 'Hands-on onboarding for you and your teaching staff before you open your doors.',
+    description: 'Hands-on onboarding for you and your staff.',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z" />
@@ -61,7 +61,7 @@ const whyPartner = [
   },
   {
     title: 'High Business Potential',
-    description: 'Education is recession-resilient — families keep investing in it even in tough years.',
+    description: 'Education is recession-resilient and always in demand.',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
@@ -71,7 +71,7 @@ const whyPartner = [
   },
   {
     title: 'Marketing Support',
-    description: 'Launch campaigns, social creatives, and local marketing playbooks provided centrally.',
+    description: 'Launch campaigns and creatives provided centrally.',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <circle cx="12" cy="12" r="10" />
@@ -82,7 +82,7 @@ const whyPartner = [
   },
   {
     title: 'Ready Teaching Materials',
-    description: 'Lesson plans, worksheets and assessment kits for every academy, ready to print and use.',
+    description: 'Lesson plans and worksheets for every academy.',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
@@ -92,7 +92,7 @@ const whyPartner = [
   },
   {
     title: 'Continuous Guidance',
-    description: 'An ongoing support line for curriculum updates, admissions help and operational questions.',
+    description: 'Ongoing support for curriculum and operations.',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zM8 11c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zM8 13c-2.67 0-8 1.34-8 4v3h9.5M16 13c-.29 0-.62.02-.97.05A4.99 4.99 0 0118 17v3h6v-3c0-2.66-5.33-4-8-4z" />
@@ -122,12 +122,8 @@ const franchiseFaqs = [
     answer: 'Curriculum, teacher training, marketing materials, ERP access, and a direct WhatsApp support line for day-to-day questions.',
   },
   {
-    question: 'How long is the agreement?',
-    answer: 'Agreement terms are discussed and finalized during the Business Plan and Agreement stages of the franchise process.',
-  },
-  {
     question: 'Can I open multiple centres?',
-    answer: 'Yes — many partners expand to additional locations once their first centre is established and performing well.',
+    answer: 'Yes — many partners expand to more locations once their first centre is established.',
   },
 ]
 

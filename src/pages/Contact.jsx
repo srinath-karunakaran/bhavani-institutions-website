@@ -51,8 +51,7 @@ export default function Contact() {
         description="Get in touch with Bhavani Group of Institutions — phone, WhatsApp, email, campus address and branch locations in Chennai."
       />
       <PageHero eyebrow="Get In Touch" title="We'd love to hear from you.">
-        Questions about admissions, academies, or branches? Reach us by phone, WhatsApp or the form below — our
-        team responds promptly.
+        Reach us by phone, WhatsApp or the form below — we respond promptly.
       </PageHero>
 
       {/* 1. Quick contact method cards */}

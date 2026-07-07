@@ -2,93 +2,81 @@ import { Link } from 'react-router-dom'
 import SEO from '../components/common/SEO.jsx'
 import SectionHeading from '../components/common/SectionHeading.jsx'
 import CheckList from '../components/common/CheckList.jsx'
-import ProcessTimeline from '../components/common/ProcessTimeline.jsx'
 import BranchCard from '../components/common/BranchCard.jsx'
 import TestimonialsCarousel from '../components/common/TestimonialsCarousel.jsx'
 import MasonryGallery from '../components/common/MasonryGallery.jsx'
-import FAQAccordion from '../components/common/FAQAccordion.jsx'
 import Reveal from '../components/common/Reveal.jsx'
 import Counter from '../components/common/Counter.jsx'
-import { CheckIcon, ArrowRightIcon, PinIcon } from '../components/icons/Icons.jsx'
+import { ArrowRightIcon, PinIcon } from '../components/icons/Icons.jsx'
 import { learningAcademies } from '../data/academies.js'
-import { popularCourses } from '../data/courses.js'
 import { homeTestimonials } from '../data/testimonials.js'
 import { homeGallery } from '../data/gallery.js'
 import { branches, googleMapsUrl } from '../data/branches.js'
-import { founder, coreValues, centumFormula } from '../data/founder.js'
+import { founder, centumFormula } from '../data/founder.js'
 
-// ── static data ────────────────────────────────────────────────────────────
-
-const heroSyllabi = [
-  'Abacus & Vedic Maths',
-  'CBSE · ICSE · Cambridge',
-  'Olympiad Coaching',
-  'NEET Foundation',
-  'Phonics & Handwriting',
-  'Sports & Arts',
+const featureStripItems = [
+  {
+    label: 'Holistic Learning',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M12 2a7 7 0 00-4 12.7V17h8v-2.3A7 7 0 0012 2zM9 21h6M10 18v3M14 18v3" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Experienced Faculty',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <circle cx="9" cy="7" r="4" />
+        <path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
+        <circle cx="17" cy="7" r="3" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Smart Classrooms',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Safe & Secure Campus',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Values & Life Skills',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 10-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 000-7.8z" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Future-Ready Education',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z" />
+        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+      </svg>
+    ),
+  },
 ]
 
 const whyParents = [
-  'Bhavani 5X Centum Precision Formula',
-  'Certified Trainers in 4 Disciplines',
-  'Small Batch — Individual Attention',
-  'Weekly Assessments & Reports',
-  'Olympiad & NEET Preparation',
-  'Affordable, No Hidden Fees',
-  'CCTV-Safe Campus',
-  'Online & Offline Modes',
+  'Certified, experienced trainers',
+  'Small batches — individual attention',
+  'Weekly assessments & parent reports',
+  'Affordable, with no hidden fees',
 ]
 
-const journeySteps = [
-  'Free Assessment',
-  'Course Selection',
-  'Weekly Learning',
-  'Monthly Assessment',
-  'Performance Improvement',
-]
-
-const franchisePoints = [
-  'Complete Training Provided',
-  'Proven Curriculum',
-  'Branding & Marketing',
-  'Technology & ERP Access',
-  'Ongoing Support',
-]
-
-const homeFaqs = [
-  {
-    question: 'Which syllabus do you follow?',
-    answer:
-      'We support CBSE, State Board, ICSE and Cambridge syllabi across our Tuition Centre, alongside Abacus, Vedic Maths, NEET Foundation and Olympiad programs.',
-  },
-  {
-    question: 'What is the age limit for joining?',
-    answer:
-      'We welcome students from pre-school enrichment age through to Olympiad and NEET-preparation levels. Our Sports Academy accepts children aged 6–15. Speak to a branch coordinator for the right fit.',
-  },
-  {
-    question: 'What is the 5X Centum Precision Formula?',
-    answer:
-      'It is our flagship tuition methodology with 5 pillars: Concept Clarity, Regular Practice, Weekly Assessment, Parent Updates and Personalised Attention — designed to take every student to centum-level performance.',
-  },
-  {
-    question: 'Do you provide transport?',
-    answer:
-      'Yes — our School Van Service offers safe, tracked doorstep pick-up and drop with live camera access for parents and backup vehicle support.',
-  },
-  {
-    question: 'Do you have online classes?',
-    answer:
-      'Our Tuition Centre offers both offline and online modes with the same structured curriculum. Other academies are currently in-person for the best hands-on experience.',
-  },
-  {
-    question: 'Do you have a trial class?',
-    answer:
-      'Yes — book a free demo session and our team will assess the right course, batch and timing for your child before you commit.',
-  },
-]
-
-// ── component ──────────────────────────────────────────────────────────────
+const franchisePoints = ['Complete Training', 'Proven Curriculum', 'Branding & Marketing', 'Ongoing Support']
 
 export default function Home() {
   return (
@@ -98,57 +86,45 @@ export default function Home() {
         description="Bhavani Group of Institutions — 8 academies across Chennai. Tuition, Abacus, Vedic Maths, NEET, Dance, Music, Art, Sports and Day Care. Founded 2005."
       />
 
-      {/* ── 1. Hero ── */}
-      <div className="hero">
-        <div className="container hero-grid">
-          <div>
-            <p className="eyebrow">Bhavani Group of Institutions · Est. 2005</p>
-            <h1>
-              Sincere Guidance.{' '}
-              <span style={{ color: 'var(--gold-deep)' }}>Peaceful Learning.</span>
-            </h1>
-            <p className="hero-lead">
-              One group. Eight academies. Three Chennai branches. From Maths centum coaching
-              to Bharatanatyam, from Abacus to Sports — every program built around your
-              child's unique potential.
-            </p>
-            <CheckList cols={2} items={heroSyllabi} />
-            <div className="hero-cta">
-              <Link className="btn btn-navy" to="/courses">
-                Explore Courses <ArrowRightIcon />
-              </Link>
-              <Link className="btn btn-outline-navy" to="/contact">
-                Book Free Demo
-              </Link>
-            </div>
+      {/* ── 1. Immersive Hero ── */}
+      <div className="hero-immersive">
+        <img
+          className="hero-immersive-bg"
+          src="/images/Bhavani_Branch_Photo.png"
+          alt="Bhavani Group of Institutions campus in Chennai"
+        />
+        <div className="hero-immersive-overlay" aria-hidden="true" />
+        <div className="container hero-immersive-content">
+          <p className="hero-welcome">Welcome to</p>
+          <h1>Bhavani Group of Institutions</h1>
+          <p className="hero-tagline">
+            One campus. Eight academies.
+            <span className="hero-script">Infinite possibilities.</span>
+          </p>
+          <div className="hero-immersive-cta">
+            <Link className="btn btn-gold" to="/academies">
+              Explore Academies <ArrowRightIcon />
+            </Link>
+            <Link className="btn btn-hero-outline" to="/contact">
+              Book a Campus Tour
+            </Link>
           </div>
+          <div className="hero-immersive-trust">
+            <span className="hero-stars">★★★★★</span>
+            <span>Sincere Guidance · Peaceful Learning · Trusted since 2005</span>
+          </div>
+        </div>
+      </div>
 
-          <div style={{ position: 'relative', marginBottom: 56 }}>
-            <div className="hero-visual">
-              <img
-                src="/images/Bhavani_Daycare.png"
-                alt="Students learning at Bhavani Group of Institutions"
-              />
+      {/* ── Feature strip ── */}
+      <div className="feature-band">
+        <div className="container">
+          {featureStripItems.map((f) => (
+            <div className="fb-item" key={f.label}>
+              <span className="fb-icon">{f.icon}</span>
+              {f.label}
             </div>
-            <div className="glass-stats">
-              <div className="glass-card">
-                <strong><Counter value="15+" /> Years</strong>
-                <span>Teaching Excellence</span>
-              </div>
-              <div className="glass-card">
-                <strong><Counter value="8" /></strong>
-                <span>Learning Academies</span>
-              </div>
-              <div className="glass-card">
-                <strong><Counter value="3" /></strong>
-                <span>Chennai Branches</span>
-              </div>
-              <div className="glass-card">
-                <strong>4 Certified</strong>
-                <span>Training Disciplines</span>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -169,14 +145,13 @@ export default function Home() {
               </span>
             </Reveal>
           ))}
-          {/* ISO badge — placed at the end of the trust strip */}
           <Reveal as="div" className="cert-badge iso-badge">
             <span className="iso-medallion">
               <img src="/images/Bhavani_ISO.png" alt="ISO 9001:2015 Certified" />
             </span>
             <span className="text">
               <strong>ISO 9001:2015</strong>
-              <span>Quality Certified Institution</span>
+              <span>Quality Certified</span>
             </span>
           </Reveal>
         </div>
@@ -196,68 +171,64 @@ export default function Home() {
             </div>
             <div className="stat">
               <strong><Counter value="8" /></strong>
-              <span>Unique Academies</span>
+              <span>Academies</span>
             </div>
             <div className="stat">
-              <strong><Counter value="100%" /></strong>
-              <span>Dedication to Results</span>
+              <strong><Counter value="3" /></strong>
+              <span>Chennai Branches</span>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Real Results (emotional proof) ── */}
+      <section className="section results-feature">
+        <div className="container">
+          <Reveal as="div" className="results-card">
+            <span className="results-stars">★★★★★</span>
+            <p className="results-quote">
+              "My son improved his Maths from <strong>65% to 94%</strong> in one year. The teachers genuinely care —
+              he actually looks forward to every class."
+            </p>
+            <div className="results-who">
+              <span className="results-avatar">P</span>
+              <div>
+                <strong>A Proud Parent</strong>
+                <span>Mugalivakkam Branch</span>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ── 4. Why Parents Choose Bhavani ── */}
       <section className="section">
         <div className="container two-col">
-          <img
-            src="/images/Bhavani_Drawing.png"
-            alt="Students at Bhavani Group of Institutions"
-            loading="lazy"
-          />
+          <img src="/images/Bhavani_Drawing.png" alt="Students at Bhavani Group of Institutions" loading="lazy" />
           <div>
             <p className="eyebrow">Why Parents Trust Bhavani</p>
-            <h2 className="section-title">Not Just Teaching.<br />A Legacy of Guidance.</h2>
+            <h2 className="section-title">Not just teaching.<br />A legacy of guidance.</h2>
             <p className="section-lead" style={{ maxWidth: '100%' }}>
-              Founded in 2005, Bhavani Group of Institutions has quietly shaped students across
-              Chennai for two decades — built not on advertisements, but on trust, discipline
-              and real results.
+              Since 2005, built not on advertisements — but on trust, discipline and real results.
             </p>
-            <CheckList cols={2} items={whyParents} />
+            <CheckList cols={1} items={whyParents} />
           </div>
         </div>
       </section>
 
-      {/* ── 5. Our Learning Academies ── */}
+      {/* ── 5. Our Learning Academies (clean, title-only) ── */}
       <section className="section alt">
         <div className="container">
-          <SectionHeading
-            eyebrow="Our Learning Academies"
-            title="Eight academies. One mission."
-            lead="Every program is structured, every teacher is certified — and every child gets the individual attention they deserve."
-          />
-          <div className="academy-grid" style={{ marginTop: 40 }}>
+          <SectionHeading eyebrow="Our Learning Academies" title="Eight academies. One mission." />
+          <div className="academy-grid" style={{ marginTop: 44 }}>
             {learningAcademies.map((academy) => (
-              <Reveal as="div" className="academy-card" key={academy.title}>
+              <Reveal as="div" className="academy-card compact" key={academy.title}>
                 <span className="emoji">{academy.emoji}</span>
                 <h3>{academy.title}</h3>
-                {academy.description && (
-                  <p style={{ fontSize: 12.5, color: 'var(--ink-muted)', marginTop: 8, marginBottom: 8 }}>
-                    {academy.description}
-                  </p>
-                )}
-                {academy.items && (
-                  <ul>
-                    {academy.items.map((item) => (
-                      <li key={item}>
-                        <ArrowRightIcon size={12} /> {item}
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </Reveal>
             ))}
           </div>
-          <div className="hero-cta center" style={{ justifyContent: 'center', marginTop: 36 }}>
+          <div className="hero-cta center" style={{ justifyContent: 'center', marginTop: 40 }}>
             <Link className="btn btn-navy" to="/academies">
               View All Academies <ArrowRightIcon />
             </Link>
@@ -272,12 +243,8 @@ export default function Home() {
             Our Flagship Methodology
           </p>
           <h2 className="section-title center" style={{ color: '#fff', marginTop: 8 }}>
-            The Bhavani 5X Centum Precision Formula
+            The 5X Centum Precision Formula
           </h2>
-          <p className="section-lead center" style={{ color: 'rgba(255,255,255,0.72)', margin: '12px auto 0' }}>
-            A proven 5-step system that has taken students from average marks to centum scores
-            — structured, concept-first and consistently effective since 2005.
-          </p>
           <div className="centum-grid">
             {centumFormula.map((step) => (
               <Reveal key={step.number} as="div" className="centum-card">
@@ -290,59 +257,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 7. Popular Courses ── */}
-      <section className="section">
-        <div className="container">
-          <SectionHeading eyebrow="Popular Courses" title="Courses families ask for most." />
-          <div className="course-grid" style={{ marginTop: 40 }}>
-            {popularCourses.map((course) => (
-              <span className="course-chip" key={course}>
-                {course}
-              </span>
-            ))}
-          </div>
-          <div className="hero-cta center" style={{ justifyContent: 'center', marginTop: 32 }}>
-            <Link className="btn btn-navy" to="/courses">
-              View All Courses
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 8. Learning Journey ── */}
-      <section className="section alt">
-        <div className="container">
-          <SectionHeading eyebrow="Learning Journey" title="From first assessment to real results." />
-          <ProcessTimeline steps={journeySteps} />
-        </div>
-      </section>
-
-      {/* ── 9. Founder Profile ── */}
+      {/* ── 7. Founder (light) ── */}
       <section className="section founder-section">
         <div className="container">
-          <SectionHeading eyebrow="Meet Our Founder" title="The Person Behind Every Result." />
+          <SectionHeading eyebrow="Meet Our Founder" title="The person behind every result." />
           <Reveal as="div" className="founder-card" style={{ marginTop: 44 }}>
             <div className="founder-img-col">
-              <div className="badge">15+ Years of Teaching Excellence</div>
-              <img
-                src="/images/Bhavani_Founder.png"
-                alt="Bhavani — Founder & Academic Director, Bhavani Group of Institutions"
-              />
+              <div className="badge">15+ Years of Excellence</div>
+              <img src="/images/Bhavani_Founder.png" alt="Bhavani — Founder & Academic Director" />
             </div>
             <div className="founder-content">
               <p className="founder-name">{founder.name}</p>
               <p className="founder-role">{founder.role}</p>
               <p className="founder-quote">
-                "{founder.mission}"
+                "Every child has unique potential — with the right guidance, they can achieve beyond their
+                imagination."
               </p>
-              <div className="founder-certs">
-                {founder.certifications.map((cert) => (
-                  <div key={cert} className="cert-item">
-                    <CheckIcon size={15} />
-                    {cert}
-                  </div>
-                ))}
-              </div>
               <Link className="btn btn-navy" to="/about">
                 Read Our Full Story <ArrowRightIcon />
               </Link>
@@ -351,32 +281,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 10. Core Values ── */}
+      {/* ── 8. Branches ── */}
       <section className="section">
         <div className="container">
-          <SectionHeading
-            eyebrow="Our Core Values"
-            title="What drives every class, every day."
-          />
-          <div className="values-grid">
-            {coreValues.map((val) => (
-              <Reveal key={val.title} as="div" className="value-card">
-                <span className="val-icon">{val.emoji}</span>
-                <div>
-                  <h3>{val.title}</h3>
-                  <p>{val.description}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 11. Branches ── */}
-      <section className="section alt">
-        <div className="container">
           <SectionHeading eyebrow="Our Branches" title="Three centres across Chennai." />
-          <div className="card-grid" style={{ marginTop: 40, alignItems: 'start' }}>
+          <div className="card-grid" style={{ marginTop: 44, alignItems: 'start' }}>
             {branches.map((branch) => (
               <BranchCard
                 key={branch.name}
@@ -389,7 +298,7 @@ export default function Home() {
               />
             ))}
           </div>
-          <div className="hero-cta center" style={{ justifyContent: 'center', marginTop: 32 }}>
+          <div className="hero-cta center" style={{ justifyContent: 'center', marginTop: 40 }}>
             <Link className="btn btn-outline-navy" to="/branches">
               Explore All Branches
             </Link>
@@ -397,26 +306,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 12. Success Stories ── */}
-      <section className="section">
+      {/* ── 9. Success Stories ── */}
+      <section className="section alt">
         <div className="container">
           <SectionHeading eyebrow="Success Stories" title="What parents are saying." />
-          <div style={{ marginTop: 40 }}>
+          <div style={{ marginTop: 44 }}>
             <TestimonialsCarousel items={homeTestimonials} />
           </div>
         </div>
       </section>
 
-      {/* ── 13. Franchise Opportunity ── */}
-      <section className="section alt">
+      {/* ── 10. Franchise Opportunity ── */}
+      <section className="section">
         <div className="container">
           <Reveal as="div" className="franchise-banner">
             <div>
               <h2>Build Your Own Bhavani Learning Centre</h2>
-              <p>
-                Partner with one of Chennai's most trusted education brands. We provide
-                everything you need to launch and grow a successful learning centre.
-              </p>
+              <p>Partner with one of Chennai's most trusted education brands.</p>
               <div className="hero-cta" style={{ marginTop: 28 }}>
                 <Link className="btn btn-gold" to="/franchise">
                   Become a Partner <ArrowRightIcon />
@@ -428,14 +334,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 14. Gallery ── */}
-      <section className="section">
+      {/* ── 11. Gallery ── */}
+      <section className="section alt">
         <div className="container">
           <SectionHeading eyebrow="Gallery" title="Life across our academies." />
-          <div style={{ marginTop: 40 }}>
+          <div style={{ marginTop: 44 }}>
             <MasonryGallery items={homeGallery} />
           </div>
-          <div className="hero-cta center" style={{ justifyContent: 'center', marginTop: 32 }}>
+          <div className="hero-cta center" style={{ justifyContent: 'center', marginTop: 40 }}>
             <Link className="btn btn-outline-navy" to="/gallery">
               View Full Gallery
             </Link>
@@ -443,49 +349,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 15. FAQ ── */}
-      <section className="section alt">
-        <div className="container">
-          <SectionHeading eyebrow="Frequently Asked Questions" title="Have a question?" />
-          <div style={{ marginTop: 36 }}>
-            <FAQAccordion items={homeFaqs} />
-          </div>
-        </div>
-      </section>
-
-      {/* ── 16. Contact ── */}
+      {/* ── 12. Contact ── */}
       <section className="section">
         <div className="container">
           <SectionHeading eyebrow="Get In Touch" title="We'd love to hear from you." />
-          <div className="two-col contact-block" style={{ marginTop: 40 }}>
+          <div className="two-col contact-block" style={{ marginTop: 44 }}>
             <div className="contact-info contact-panel">
               <span className="label">Phone</span>
               <p>
                 <a href="tel:+916383129475">+91 63831 29475</a>
               </p>
-
               <span className="label">Email</span>
               <p>
                 <a href="mailto:contact@bhavaniedutech.com">contact@bhavaniedutech.com</a>
               </p>
-
               <span className="label">Working Hours</span>
               <p style={{ marginBottom: 0 }}>
-                Monday – Saturday
-                <br />
-                9 AM – 7 PM
+                Monday – Saturday · 9 AM – 7 PM
               </p>
-
               <div className="hero-cta">
-                <a
-                  className="btn btn-navy"
-                  href="https://wa.me/916383129475"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <CheckIcon size={15} /> Chat on WhatsApp
-                </a>
-                <Link className="btn btn-outline-navy" to="/contact">
+                <Link className="btn btn-navy" to="/contact">
                   Send Message
                 </Link>
               </div>
@@ -506,9 +389,7 @@ export default function Home() {
                 Annai Velankanni Nagar Phase 1,<br />
                 Madhanandapuram, Chennai — 600125
               </p>
-              <p style={{ marginTop: 12, color: 'var(--gold-deep)', fontWeight: 600 }}>
-                Open in Google Maps →
-              </p>
+              <p style={{ marginTop: 12, color: 'var(--gold-deep)', fontWeight: 600 }}>Open in Google Maps →</p>
             </a>
           </div>
         </div>

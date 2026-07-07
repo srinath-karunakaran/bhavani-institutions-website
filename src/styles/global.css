@@ -3152,3 +3152,310 @@ select,
 @media (prefers-reduced-motion: reduce) {
   .whatsapp-pulse { animation: none; opacity: 0; }
 }
+
+/* ---------- Home declutter: airier spacing + clean academy cards ---------- */
+.academy-card.compact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 34px 20px;
+  min-height: 150px;
+}
+.academy-card.compact .emoji {
+  font-size: 34px;
+  margin: 0;
+}
+.academy-card.compact h3 {
+  margin: 0;
+  font-size: 15px;
+}
+/* A touch more vertical breathing room between sections */
+.section {
+  padding: 96px 0;
+}
+@media (max-width: 640px) {
+  .section {
+    padding: 60px 0;
+  }
+}
+
+/* ---------- Hero trust line ---------- */
+.hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+.hero-stars {
+  color: var(--gold);
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+/* ---------- Real Results feature (warm, emotional) ---------- */
+.results-feature {
+  background: linear-gradient(135deg, #fff8ec 0%, #fdf3e0 100%);
+}
+.results-card {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+.results-stars {
+  display: block;
+  color: var(--gold);
+  font-size: 24px;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+.results-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.45;
+  color: var(--navy);
+  font-weight: 600;
+}
+.results-quote strong {
+  color: var(--gold-deep);
+}
+.results-who {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 26px;
+  text-align: left;
+}
+.results-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--gold);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.results-who strong {
+  display: block;
+  font-size: 15px;
+  color: var(--navy);
+}
+.results-who span {
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+/* ---------- Immersive full-width hero ---------- */
+.hero-immersive {
+  position: relative;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--navy-deep);
+}
+.hero-immersive-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  z-index: 0;
+}
+.hero-immersive-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(8, 29, 74, 0.55) 0%, rgba(8, 29, 74, 0.35) 45%, rgba(8, 29, 74, 0.78) 100%),
+    radial-gradient(circle at 50% 40%, rgba(8, 29, 74, 0.15), rgba(8, 29, 74, 0.6) 90%);
+}
+.hero-immersive-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 90px 32px;
+  color: #fff;
+}
+.hero-welcome {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 24px;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.hero-immersive-content h1 {
+  font-size: clamp(34px, 5.4vw, 62px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+}
+.hero-tagline {
+  font-size: clamp(17px, 2vw, 22px);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.92);
+  margin-top: 16px;
+}
+.hero-script {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(22px, 2.6vw, 30px);
+  color: var(--gold);
+  margin-top: 4px;
+}
+.hero-immersive-cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+.btn-hero-outline {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+.btn-hero-outline:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+.hero-immersive-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 26px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  flex-wrap: wrap;
+}
+.hero-immersive-trust .hero-stars {
+  color: var(--gold);
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+/* ---------- Feature band (under hero) ---------- */
+.feature-band {
+  background: var(--navy);
+  border-bottom: 3px solid var(--gold);
+}
+.feature-band .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.fb-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #fff;
+}
+.fb-icon {
+  color: var(--gold);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .feature-band .container {
+    justify-content: flex-start;
+  }
+  .fb-item {
+    width: calc(50% - 24px);
+  }
+}
+@media (max-width: 640px) {
+  .hero-immersive {
+    min-height: 520px;
+  }
+  .hero-immersive-content {
+    padding: 60px 20px;
+  }
+  .fb-item {
+    width: 100%;
+  }
+}
+
+/* ---------- Branches hero (light, location-themed — distinct from Home) ---------- */
+.branches-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #f3f7ff 0%, #fff 50%, #fdf6e9 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 88px 0;
+}
+.branches-hero .dot-pattern {
+  opacity: 0.45;
+}
+.branches-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 760px;
+}
+.branches-hero-content h1 {
+  font-size: clamp(32px, 4.6vw, 52px);
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.14;
+  margin-top: 8px;
+}
+.branches-hero-lead {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink-muted);
+  margin-top: 18px;
+}
+.branches-pins {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+.branch-pin {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  box-shadow: 0 6px 18px rgba(15, 47, 115, 0.08);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.branch-pin:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold);
+  box-shadow: 0 10px 24px rgba(15, 47, 115, 0.14);
+}
+.branch-pin svg {
+  color: var(--gold-deep);
+}
+@media (max-width: 640px) {
+  .branches-hero {
+    padding: 60px 0;
+  }
+}

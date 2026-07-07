@@ -14,36 +14,12 @@ import SEO from '../components/common/SEO.jsx'
 import { academyCards } from '../data/academies.js'
 
 const includedFeatures = [
-  {
-    icon: <BadgeCheck size={20} />,
-    title: 'Certified Trainers',
-    description: 'Every academy is led by trained, certified instructors with real teaching experience.',
-  },
-  {
-    icon: <Users size={20} />,
-    title: 'Small Batch Sizes',
-    description: 'Limited students per batch so every child gets genuine individual attention.',
-  },
-  {
-    icon: <BookOpen size={20} />,
-    title: 'Structured Curriculum',
-    description: 'A clear, level-based syllabus for every program — no improvising, no guesswork.',
-  },
-  {
-    icon: <ClipboardCheck size={20} />,
-    title: 'Progress Reports',
-    description: 'Regular assessments and parent updates so you always know how your child is growing.',
-  },
-  {
-    icon: <Clock size={20} />,
-    title: 'Flexible Timings',
-    description: 'Weekday and weekend batches across academies to fit around school and family life.',
-  },
-  {
-    icon: <ShieldCheck size={20} />,
-    title: 'Safe Environment',
-    description: 'CCTV-monitored, secure premises with a caring, encouraging atmosphere.',
-  },
+  { icon: <BadgeCheck size={20} />, title: 'Certified Trainers', description: 'Trained, experienced instructors in every academy.' },
+  { icon: <Users size={20} />, title: 'Small Batches', description: 'Limited students, so every child gets attention.' },
+  { icon: <BookOpen size={20} />, title: 'Structured Curriculum', description: 'A clear, level-based plan for every program.' },
+  { icon: <ClipboardCheck size={20} />, title: 'Progress Reports', description: 'Regular assessments and parent updates.' },
+  { icon: <Clock size={20} />, title: 'Flexible Timings', description: 'Weekday and weekend batches available.' },
+  { icon: <ShieldCheck size={20} />, title: 'Safe Environment', description: 'CCTV-monitored, secure and caring premises.' },
 ]
 
 const enrollSteps = ['Enquire', 'Free Demo Class', 'Choose Your Batch', 'Enroll', 'Start Learning']
@@ -52,27 +28,22 @@ const academyFaqs = [
   {
     question: 'Can my child join more than one academy?',
     answer:
-      'Absolutely. Many families mix and match — for example Tuition plus Abacus, or Dance plus Music. Since everything runs under one group, timings can be coordinated for you.',
+      'Absolutely — many families mix and match (e.g. Tuition plus Abacus). Since everything runs under one group, timings can be coordinated for you.',
   },
   {
     question: 'Do you offer a free trial or demo class?',
     answer:
-      'Yes. Every academy offers a free demo session so your child can experience the class and our team can recommend the right batch and level before you enroll.',
+      'Yes. Every academy offers a free demo so your child can experience the class before you enroll.',
   },
   {
     question: 'Which academies are available online?',
     answer:
-      'Our Tuition Centre, Abacus & Vedic Math and Music Academy offer both online and offline modes. Dance, Art, Sports, Day Care and Van Service are offered in person.',
+      'Tuition, Abacus & Vedic Math and Music offer online and offline modes. Dance, Art, Sports, Day Care and Van Service are in person.',
   },
   {
     question: 'How are batches and timings decided?',
     answer:
-      'Batches are formed by age group and skill level with limited seats each. We offer weekday evening and weekend slots — share your preference during enquiry and we will fit you into the best available batch.',
-  },
-  {
-    question: 'Are there discounts for siblings or multiple academies?',
-    answer:
-      'We keep our fees affordable with no hidden charges, and we are happy to discuss family-friendly plans for siblings or multiple-academy enrollments. Please ask during your enquiry.',
+      'Batches are by age group and skill level with limited seats. Share your preferred slot during enquiry and we fit you into the best available batch.',
   },
 ]
 
@@ -86,8 +57,7 @@ export default function Academies() {
         description="Eight academies on one campus: Tuition, Abacus & Vedic Math, Dance, Drawing & Art, Day Care, Music, Sports and School Van Service."
       />
       <PageHero eyebrow="Our Academies" title="Eight ways we help your child grow.">
-        Every academy runs under the same standards of care — so families can mix and match programs without
-        juggling different schools. Tap any academy to see full course details, timings and batch info.
+        One campus, one standard of care. Tap any academy for full details.
       </PageHero>
 
       {/* 1. Academy cards */}
@@ -102,12 +72,7 @@ export default function Academies() {
                 onClick={() => setSelected(academy)}
                 aria-label={`View details for ${academy.title}`}
               >
-                <PhotoCard
-                  src={academy.image}
-                  alt={academy.alt}
-                  title={academy.title}
-                  description={academy.description}
-                />
+                <PhotoCard src={academy.image} alt={academy.alt} title={academy.title} />
                 <span className="academy-card-cue">View Details →</span>
               </button>
             ))}
@@ -142,11 +107,7 @@ export default function Academies() {
       {/* 3. What every academy includes */}
       <section className="section">
         <div className="container">
-          <SectionHeading
-            eyebrow="What Every Academy Includes"
-            title="The same high standard, across the board."
-            lead="Whichever program your child joins, these are the things we promise every single time."
-          />
+          <SectionHeading eyebrow="What Every Academy Includes" title="The same high standard, across the board." />
           <div className="card-grid" style={{ marginTop: 40 }}>
             {includedFeatures.map((f) => (
               <InfoCard key={f.title} icon={f.icon} title={f.title} description={f.description} />
@@ -183,7 +144,7 @@ export default function Academies() {
         <div className="container">
           <CTABanner
             title="Not sure which academy fits your child?"
-            lead="Tell us your child's age and interests — our team will recommend the right program and batch."
+            lead="Tell us your child's age and interests — we'll recommend the right program."
           >
             <Link className="btn btn-gold" to="/contact">
               Talk to Our Team
