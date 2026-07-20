@@ -204,7 +204,7 @@ export default function Home() {
       {/* ── 4. Why Parents Choose Bhavani ── */}
       <section className="section">
         <div className="container two-col">
-          <img src="/images/Bhavani_Drawing.png" alt="Students at Bhavani Group of Institutions" loading="lazy" />
+          <img src="/images/Bhavani_Trust.png" alt="Students learning at Bhavani Group of Institutions" loading="lazy" />
           <div>
             <p className="eyebrow">Why Parents Trust Bhavani</p>
             <h2 className="section-title">Not just teaching.<br />A legacy of guidance.</h2>

@@ -4,7 +4,7 @@ export const homeAcademyStrip = [
   { title: 'Drawing & Art', image: '/images/Bhavani_Drawing.png', alt: 'Drawing & Art Studio' },
   { title: 'Day Care', image: '/images/Bhavani_Daycare.png', alt: 'Day Care & After-School' },
   { title: 'Music Academy', image: '/images/Bhavani_Music.png', alt: 'Music Academy' },
-  { title: 'Sports Program', image: '/images/Bhavani_Sports_Frame.jpg', alt: 'Sports Program' },
+  { title: 'Sports Program', image: '/images/Bhavani_Sports_Frame.png', alt: 'Sports Program' },
 ]
 
 // Full academy details — used by the Academies page cards AND the
@@ -13,7 +13,7 @@ export const homeAcademyStrip = [
 export const academyCards = [
   {
     title: 'Tuition Centre',
-    image: '/images/Bhavani_Abacus.png',
+    image: '/images/Bhavani_Tuition.png',
     alt: 'Bhavani Tuition Centre',
     description: 'Founded 2005. Maths specialists (Grades 6–10) with our 5X Centum Precision Formula — structured, result-oriented and emotionally supportive.',
     tagline: 'Legacy of Guidance. Not Just Teaching.',
@@ -133,7 +133,7 @@ export const academyCards = [
   },
   {
     title: 'Sports Academy',
-    image: '/images/Bhavani_Sports_Frame.jpg',
+    image: '/images/Bhavani_Sports_Frame.png',
     alt: 'Bhavani Sports Academy',
     description: 'Skating, Rubik\'s Cube, Table Tennis, Karate, Silambam and Chess for children aged 6–15 with certified coaches. Building discipline and fitness.',
     tagline: 'Unlock potential through sport.',

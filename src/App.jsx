@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout.jsx'
 import ScrollToTop from './components/layout/ScrollToTop.jsx'
+import Preloader from './components/layout/Preloader.jsx'
 
 // Route-based code splitting: each page (and its heavy libs — swiper,
 // lightbox, framer-motion usage) loads on demand instead of in one big bundle.
@@ -21,6 +22,7 @@ function PageFallback() {
 export default function App() {
   return (
     <BrowserRouter>
+      <Preloader />
       <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>

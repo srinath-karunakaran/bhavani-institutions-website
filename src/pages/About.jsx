@@ -87,7 +87,7 @@ export default function About() {
             </div>
           </div>
           <div className="hero-visual">
-            <img src="/images/Bhavani_Music.png" alt="Happy teacher with students at Bhavani Group of Institutions" loading="lazy" />
+            <img src="/images/Bhavani_About_us.png" alt="Happy teacher with students at Bhavani Group of Institutions" loading="lazy" />
           </div>
         </div>
       </div>
@@ -95,7 +95,7 @@ export default function About() {
       {/* 2. Who We Are */}
       <section className="section">
         <div className="container two-col">
-          <img src="/images/Bhavani_Abacus.png" alt="Founder and teacher with students" loading="lazy" />
+          <img src="/images/Who_we_are.png" alt="Founder and teacher with students" loading="lazy" />
           <div>
             <p className="eyebrow">Who We Are</p>
             <h2 className="section-title">A premier learning institution.</h2>
@@ -161,7 +161,7 @@ export default function About() {
               personally."
             </p>
             <div style={{ marginTop: 20 }}>
-              <strong style={{ display: 'block', color: 'var(--navy)', fontFamily: "'Playfair Display',serif", fontSize: 18 }}>
+              <strong style={{ display: 'block', color: 'var(--navy)', fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 18 }}>
                 Bhavani
               </strong>
               <span style={{ fontSize: 13.5, color: 'var(--ink-muted)' }}>Founder &amp; Academic Director</span>
