@@ -4,6 +4,7 @@ import SectionHeading from '../components/common/SectionHeading.jsx'
 import CheckList from '../components/common/CheckList.jsx'
 import BranchCard from '../components/common/BranchCard.jsx'
 import TestimonialsCarousel from '../components/common/TestimonialsCarousel.jsx'
+import HeroCarousel from '../components/common/HeroCarousel.jsx'
 import MasonryGallery from '../components/common/MasonryGallery.jsx'
 import Reveal from '../components/common/Reveal.jsx'
 import Counter from '../components/common/Counter.jsx'
@@ -86,35 +87,8 @@ export default function Home() {
         description="Bhavani Group of Institutions — 8 academies across Chennai. Tuition, Abacus, Vedic Maths, NEET, Dance, Music, Art, Sports and Day Care. Founded 2005."
       />
 
-      {/* ── 1. Immersive Hero ── */}
-      <div className="hero-immersive">
-        <img
-          className="hero-immersive-bg"
-          src="/images/Bhavani_Branch_Photo.png"
-          alt="Bhavani Group of Institutions campus in Chennai"
-        />
-        <div className="hero-immersive-overlay" aria-hidden="true" />
-        <div className="container hero-immersive-content">
-          <p className="hero-welcome">Welcome to</p>
-          <h1>Bhavani Group of Institutions</h1>
-          <p className="hero-tagline">
-            One campus. Eight academies.
-            <span className="hero-script">Infinite possibilities.</span>
-          </p>
-          <div className="hero-immersive-cta">
-            <Link className="btn btn-gold" to="/academies">
-              Explore Academies <ArrowRightIcon />
-            </Link>
-            <Link className="btn btn-hero-outline" to="/contact">
-              Book a Campus Tour
-            </Link>
-          </div>
-          <div className="hero-immersive-trust">
-            <span className="hero-stars">★★★★★</span>
-            <span>Sincere Guidance · Peaceful Learning · Trusted since 2005</span>
-          </div>
-        </div>
-      </div>
+      {/* ── 1. Immersive Hero (auto-rotating carousel) ── */}
+      <HeroCarousel />
 
       {/* ── Feature strip ── */}
       <div className="feature-band">
@@ -193,7 +167,7 @@ export default function Home() {
             <div className="results-who">
               <span className="results-avatar">P</span>
               <div>
-                <strong>A Proud Parent</strong>
+                <strong>Viji</strong>
                 <span>Mugalivakkam Branch</span>
               </div>
             </div>

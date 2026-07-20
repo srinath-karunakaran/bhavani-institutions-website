@@ -3054,21 +3054,42 @@ select,
   display: flex;
   align-items: center;
   justify-content: center;
+  perspective: 800px;
 }
-.route-loading::after {
-  content: '';
-  width: 42px;
-  height: 42px;
+/* Branded 3D route loader — torch badge coin-flips inside a spinning gold ring */
+.route-loader {
+  position: relative;
+  width: 72px;
+  height: 72px;
+}
+.route-loader-ring {
+  position: absolute;
+  inset: -7px;
   border-radius: 50%;
-  border: 3px solid var(--border);
-  border-top-color: var(--gold);
-  animation: routeSpin 0.8s linear infinite;
+  background: conic-gradient(from 0deg, transparent 0 58%, var(--gold) 90%, transparent 100%);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+  animation: preSpin 1s linear infinite;
 }
-@keyframes routeSpin {
-  to { transform: rotate(360deg); }
+.route-loader-badge {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1b3f8f, var(--navy-deep));
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 26px rgba(8, 20, 48, 0.28), inset 0 2px 6px rgba(255, 255, 255, 0.12);
+  animation: preFlip 1.8s cubic-bezier(0.5, 0, 0.3, 1) infinite;
+}
+.route-loader-badge img {
+  width: auto;
+  height: 34px;
+  display: block;
+  filter: drop-shadow(0 0 5px rgba(244, 178, 35, 0.6));
 }
 @media (prefers-reduced-motion: reduce) {
-  .route-loading::after { animation: none; }
+  .route-loader-ring { animation-duration: 2.4s; }
+  .route-loader-badge { animation: none; }
 }
 
 /* ---------- Floating scroll (top/bottom) button ---------- */
@@ -3321,6 +3342,54 @@ select,
   background:
     linear-gradient(180deg, rgba(8, 29, 74, 0.55) 0%, rgba(8, 29, 74, 0.35) 45%, rgba(8, 29, 74, 0.78) 100%),
     radial-gradient(circle at 50% 40%, rgba(8, 29, 74, 0.15), rgba(8, 29, 74, 0.6) 90%);
+}
+
+/* ── Auto-rotating hero carousel (with Ken Burns zoom) ── */
+.hero-carousel .hero-immersive {
+  min-height: 640px;
+}
+@keyframes heroKenBurns {
+  from { transform: scale(1); }
+  to { transform: scale(1.12); }
+}
+.hero-carousel .hero-immersive-bg {
+  transform: scale(1);
+}
+.hero-carousel .swiper-slide-active .hero-immersive-bg {
+  animation: heroKenBurns 7s ease-out forwards;
+}
+@keyframes heroContentUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-carousel .swiper-slide-active .hero-immersive-content > * {
+  animation: heroContentUp 0.7s ease both;
+}
+.hero-carousel .swiper-slide-active .hero-immersive-content > *:nth-child(2) { animation-delay: 0.08s; }
+.hero-carousel .swiper-slide-active .hero-immersive-content > *:nth-child(3) { animation-delay: 0.16s; }
+.hero-carousel .swiper-slide-active .hero-immersive-content > *:nth-child(4) { animation-delay: 0.24s; }
+.hero-carousel .swiper-slide-active .hero-immersive-content > *:nth-child(5) { animation-delay: 0.32s; }
+.hero-carousel .swiper-pagination {
+  bottom: 22px !important;
+}
+.hero-carousel .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  opacity: 0.5;
+  transition: width 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+}
+.hero-carousel .swiper-pagination-bullet-active {
+  opacity: 1;
+  width: 26px;
+  border-radius: 6px;
+  background: var(--gold);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-carousel .swiper-slide-active .hero-immersive-bg,
+  .hero-carousel .swiper-slide-active .hero-immersive-content > * {
+    animation: none;
+  }
 }
 .hero-immersive-content {
   position: relative;
@@ -3611,4 +3680,251 @@ select:focus-visible,
   outline: 3px solid var(--gold);
   outline-offset: 2px;
   border-radius: 4px;
+}
+
+/* ---------- Promotional popup (on load) ---------- */
+.promo-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  background: rgba(8, 20, 48, 0.62);
+  backdrop-filter: blur(5px);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+.promo-modal {
+  position: relative;
+  width: min(720px, 100%);
+  max-height: 94vh;
+  overflow: hidden;
+  /* one seamless white surface — the student image blends into it */
+  background: #fff;
+  border-radius: 26px;
+  box-shadow: 0 30px 80px rgba(8, 20, 48, 0.45);
+}
+.promo-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  color: var(--navy);
+  box-shadow: 0 4px 14px rgba(8, 20, 48, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.promo-close:hover {
+  transform: rotate(90deg);
+  box-shadow: 0 6px 18px rgba(8, 20, 48, 0.28);
+}
+
+/* Left — offer content (sits above the full-width surface) */
+.promo-content {
+  position: relative;
+  z-index: 2;
+  width: 58%;
+  padding: 34px 30px 30px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.promo-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.promo-brand-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.promo-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.promo-brand-text strong {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--navy);
+}
+.promo-brand-text span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+}
+.promo-brand-text em {
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--gold-deep);
+  margin-top: 2px;
+}
+.promo-ribbon {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  background: linear-gradient(90deg, var(--gold), #f4c66a);
+  padding: 10px 26px 10px 18px;
+  border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(232, 169, 58, 0.32);
+  clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 14px 100%, 0 50%);
+}
+.promo-year {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(48px, 8vw, 68px);
+  font-weight: 800;
+  line-height: 0.95;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  border-bottom: 4px solid var(--gold);
+  padding-bottom: 12px;
+  width: fit-content;
+}
+.promo-offer-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(180deg, #fbfbfd, #f3f5f9);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px 18px;
+}
+.promo-offer-ico {
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--navy);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 12px rgba(8, 20, 48, 0.12);
+}
+.promo-offer-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.promo-offer-top {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--gold-deep);
+}
+.promo-offer-main {
+  font-size: 23px;
+  font-weight: 800;
+  color: var(--navy);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 5px;
+  width: fit-content;
+}
+.promo-offer-worth {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-top: 7px;
+}
+.promo-offer-worth::first-letter {
+  color: var(--gold-deep);
+}
+.promo-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: var(--navy);
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold) 55%, #f4c66a);
+  padding: 16px 22px;
+  border-radius: 999px;
+  box-shadow: 0 12px 26px rgba(232, 169, 58, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.promo-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(232, 169, 58, 0.5);
+}
+.promo-foot {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.promo-foot svg {
+  color: var(--gold-deep);
+}
+
+/* Right — student image overlaid on the same white surface (no seam) */
+.promo-figure {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 52%;
+  background: transparent;
+  pointer-events: none;
+}
+.promo-figure img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  /* fade the left edge so the image melts into the white content — no seam */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 16%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 16%);
+}
+
+@media (max-width: 720px) {
+  .promo-modal {
+    display: flex;
+    flex-direction: column;
+    width: min(420px, 100%);
+    max-height: 92vh;
+    overflow-y: auto;
+  }
+  .promo-figure {
+    position: relative;
+    order: -1;
+    width: 100%;
+    height: 200px;
+  }
+  .promo-figure img {
+    height: 108%;
+  }
+  .promo-content {
+    width: 100%;
+    padding: 22px 22px 26px;
+    gap: 14px;
+  }
+  .promo-year {
+    font-size: 52px;
+  }
 }

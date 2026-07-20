@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout.jsx'
 import ScrollToTop from './components/layout/ScrollToTop.jsx'
 import Preloader from './components/layout/Preloader.jsx'
+import PromoPopup from './components/common/PromoPopup.jsx'
 
 // Route-based code splitting: each page (and its heavy libs — swiper,
 // lightbox, framer-motion usage) loads on demand instead of in one big bundle.
@@ -16,13 +17,23 @@ const Gallery = lazy(() => import('./pages/Gallery.jsx'))
 const Contact = lazy(() => import('./pages/Contact.jsx'))
 
 function PageFallback() {
-  return <div className="route-loading" aria-busy="true" />
+  return (
+    <div className="route-loading" aria-busy="true" aria-label="Loading">
+      <div className="route-loader">
+        <span className="route-loader-ring" />
+        <span className="route-loader-badge">
+          <img src="/images/Bhavani_Logo.png" alt="" />
+        </span>
+      </div>
+    </div>
+  )
 }
 
 export default function App() {
   return (
     <BrowserRouter>
       <Preloader />
+      <PromoPopup />
       <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
