@@ -23,6 +23,17 @@ export default function Header() {
     setNavOpen(false)
   }
 
+  // "Admissions Open" points to /contact. If the user is already on the
+  // contact page, a normal link does nothing — so scroll to the enquiry
+  // form instead to give clear feedback.
+  function handleAdmissions(e) {
+    closeNav()
+    if (location.pathname === '/contact') {
+      e.preventDefault()
+      document.getElementById('enquiry')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
   return (
     <>
       <header className="site-header">
@@ -51,7 +62,7 @@ export default function Header() {
             <a href="tel:+916383129475" className="btn-call">
               <Phone size={14} /> Call Now
             </a>
-            <Link to="/contact" className="btn btn-gold">
+            <Link to="/contact" className="btn btn-gold" onClick={handleAdmissions}>
               Admissions Open
             </Link>
             <div
@@ -82,7 +93,7 @@ export default function Header() {
           <a href="tel:+916383129475" className="btn btn-outline-navy" onClick={closeNav}>
             <Phone size={15} /> Call Now
           </a>
-          <Link to="/contact" className="btn btn-gold" onClick={closeNav}>
+          <Link to="/contact" className="btn btn-gold" onClick={handleAdmissions}>
             Admissions Open
           </Link>
         </div>

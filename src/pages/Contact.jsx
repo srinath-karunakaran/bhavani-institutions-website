@@ -114,7 +114,7 @@ export default function Contact() {
             </p>
           </div>
 
-          <form className="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
+          <form id="enquiry" className="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate style={{ scrollMarginTop: 90 }}>
             <input
               type="text"
               placeholder="Your name"
