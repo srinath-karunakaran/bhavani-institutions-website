@@ -15,7 +15,7 @@ const SLIDES = [
     image: '/images/Bhavani_Branch_Photo.png',
     welcome: 'Welcome to',
     title: 'Bhavani Group of Institutions',
-    tagline: 'One campus. Eight academies.',
+    tagline: 'One campus. All academies.',
     script: 'Infinite possibilities.',
     primary: { label: 'Explore Academies', to: '/academies' },
     secondary: { label: 'Book a Campus Tour', to: '/contact' },

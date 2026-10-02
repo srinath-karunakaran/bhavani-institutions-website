@@ -54,7 +54,7 @@ export default function Academies() {
     <>
       <SEO
         title="Our Academies"
-        description="Eight academies on one campus: Tuition, Abacus & Vedic Math, Dance, Drawing & Art, Day Care, Music, Sports and School Van Service."
+        description="All our academies on one campus: Tuition, Abacus & Vedic Math, Dance, Drawing & Art, Day Care, Music, Sports and School Van Service."
       />
       <PageHero eyebrow="Our Academies" title="Eight ways we help your child grow.">
         One campus, one standard of care. Tap any academy for full details.

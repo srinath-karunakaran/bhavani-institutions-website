@@ -84,7 +84,7 @@ export default function Home() {
     <>
       <SEO
         title="Sincere Guidance. Peaceful Learning."
-        description="Bhavani Group of Institutions — 8 academies across Chennai. Tuition, Abacus, Vedic Maths, NEET, Dance, Music, Art, Sports and Day Care. Founded 2005."
+        description="Bhavani Group of Institutions — all academies across Chennai. Tuition, Abacus, Vedic Maths, NEET, Dance, Music, Art, Sports and Day Care. Founded 2005."
       />
 
       {/* ── 1. Immersive Hero (auto-rotating carousel) ── */}
@@ -193,7 +193,7 @@ export default function Home() {
       {/* ── 5. Our Learning Academies (clean, title-only) ── */}
       <section className="section alt">
         <div className="container">
-          <SectionHeading eyebrow="Our Learning Academies" title="Eight academies. One mission." />
+          <SectionHeading eyebrow="Our Learning Academies" title="All academies. One mission." />
           <div className="academy-grid" style={{ marginTop: 44 }}>
             {learningAcademies.map((academy) => (
               <Reveal as="div" className="academy-card compact" key={academy.title}>

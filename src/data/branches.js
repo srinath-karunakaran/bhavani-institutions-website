@@ -7,7 +7,7 @@ export const branches = [
     short: 'Madhanandapuram',
     address: '18/11, Annai Velankanni Nagar, Phase 1, Madhanandapuram, Chennai - 600125',
     itemsLabel: null,
-    items: ['All 8 academies', 'Smart classroom', 'Parking available'],
+    items: ['All academies', 'Smart classroom', 'Parking available'],
     mapQuery: '18/11, Annai Velankanni Nagar, Phase 1, Madhanandapuram, Chennai 600125',
     mapLabel: 'View on Google Maps',
     timing: 'Monday – Saturday · 9:00 AM – 7:00 PM',

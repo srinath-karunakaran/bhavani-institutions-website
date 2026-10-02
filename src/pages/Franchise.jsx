@@ -42,7 +42,7 @@ const heroStats = [
 const whyPartner = [
   {
     title: 'Proven Curriculum',
-    description: 'Tested curriculum across all eight academies.',
+    description: 'Tested curriculum across all our academies.',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M9.5 2a4.5 4.5 0 00-4.5 4.5v.5A4 4 0 003 10.5 4 4 0 005.5 14a4.5 4.5 0 004 4.5v1a2 2 0 104 0v-15A2.5 2.5 0 009.5 2z" />
