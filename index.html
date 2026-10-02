@@ -38,24 +38,6 @@
 </script>
 </head>
 <body>
-  <!-- Hidden static forms so Netlify detects them at build time. The real
-       (React) forms POST to these by name. Do not remove. -->
-  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <input type="tel" name="phone" />
-    <textarea name="message"></textarea>
-  </form>
-  <form name="franchise" netlify netlify-honeypot="bot-field" hidden>
-    <input type="text" name="name" />
-    <input type="tel" name="phone" />
-    <input type="email" name="email" />
-    <input type="text" name="city" />
-    <input type="text" name="budget" />
-    <input type="text" name="location" />
-    <textarea name="message"></textarea>
-  </form>
-
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>

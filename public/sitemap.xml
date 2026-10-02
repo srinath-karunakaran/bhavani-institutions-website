@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Replace REPLACE-WITH-YOUR-DOMAIN with your real domain after deploying. -->
+<!-- Live domain: bhavaniedutech.com -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://REPLACE-WITH-YOUR-DOMAIN/</loc><priority>1.0</priority></url>
-  <url><loc>https://REPLACE-WITH-YOUR-DOMAIN/about</loc><priority>0.8</priority></url>
-  <url><loc>https://REPLACE-WITH-YOUR-DOMAIN/academies</loc><priority>0.8</priority></url>
-  <url><loc>https://REPLACE-WITH-YOUR-DOMAIN/courses</loc><priority>0.8</priority></url>
-  <url><loc>https://REPLACE-WITH-YOUR-DOMAIN/branches</loc><priority>0.8</priority></url>
-  <url><loc>https://REPLACE-WITH-YOUR-DOMAIN/franchise</loc><priority>0.7</priority></url>
-  <url><loc>https://REPLACE-WITH-YOUR-DOMAIN/gallery</loc><priority>0.6</priority></url>
-  <url><loc>https://REPLACE-WITH-YOUR-DOMAIN/contact</loc><priority>0.7</priority></url>
+  <url><loc>https://bhavaniedutech.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://bhavaniedutech.com/about</loc><priority>0.8</priority></url>
+  <url><loc>https://bhavaniedutech.com/academies</loc><priority>0.8</priority></url>
+  <url><loc>https://bhavaniedutech.com/courses</loc><priority>0.8</priority></url>
+  <url><loc>https://bhavaniedutech.com/branches</loc><priority>0.8</priority></url>
+  <url><loc>https://bhavaniedutech.com/franchise</loc><priority>0.7</priority></url>
+  <url><loc>https://bhavaniedutech.com/gallery</loc><priority>0.6</priority></url>
+  <url><loc>https://bhavaniedutech.com/contact</loc><priority>0.7</priority></url>
 </urlset>

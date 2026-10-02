@@ -13,3 +13,6 @@ dist-ssr/
 .DS_Store
 *.local
 npm-debug.log*
+
+# Local deploy package (do not commit)
+bhavani-site.zip

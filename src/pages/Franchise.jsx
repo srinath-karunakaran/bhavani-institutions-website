@@ -14,7 +14,7 @@ import FAQAccordion from '../components/common/FAQAccordion.jsx'
 import CTABanner from '../components/common/CTABanner.jsx'
 import SEO from '../components/common/SEO.jsx'
 import { franchiseSchema } from '../data/schemas.js'
-import { submitToNetlify } from '../utils/submitForm.js'
+import { submitForm } from '../utils/submitForm.js'
 
 // Hero entrance stagger.
 const heroContainer = { hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } } }
@@ -141,9 +141,14 @@ export default function Franchise() {
   } = useForm({ resolver: zodResolver(franchiseSchema) })
 
   async function onSubmit(data) {
-    await submitToNetlify('franchise', data)
-    setStatus('Thanks — our franchise team will reach out shortly.')
-    reset()
+    setStatus('')
+    try {
+      await submitForm('franchise', data)
+      setStatus('Thanks — our franchise team will reach out shortly.')
+      reset()
+    } catch (err) {
+      setStatus(err.message || 'Could not send. Please call or WhatsApp us.')
+    }
   }
 
   return (

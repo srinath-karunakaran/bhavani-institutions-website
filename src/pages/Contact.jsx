@@ -9,7 +9,7 @@ import SuccessModal from '../components/common/SuccessModal.jsx'
 import SEO from '../components/common/SEO.jsx'
 import { contactSchema } from '../data/schemas.js'
 import { branches, googleMapsUrl } from '../data/branches.js'
-import { submitToNetlify } from '../utils/submitForm.js'
+import { submitForm } from '../utils/submitForm.js'
 
 const PHONE = '+91 63831 29475'
 const PHONE_LINK = 'tel:+916383129475'
@@ -31,6 +31,7 @@ const contactMethods = [
 
 export default function Contact() {
   const [showSuccess, setShowSuccess] = useState(false)
+  const [sendError, setSendError] = useState('')
   const {
     register,
     handleSubmit,
@@ -39,9 +40,14 @@ export default function Contact() {
   } = useForm({ resolver: zodResolver(contactSchema) })
 
   async function onSubmit(data) {
-    await submitToNetlify('contact', data)
-    setShowSuccess(true)
-    reset()
+    setSendError('')
+    try {
+      await submitForm('contact', data)
+      setShowSuccess(true)
+      reset()
+    } catch (err) {
+      setSendError(err.message || 'Could not send. Please call or WhatsApp us.')
+    }
   }
 
   return (
@@ -148,8 +154,9 @@ export default function Contact() {
             {errors.message && <p className="field-error">{errors.message.message}</p>}
 
             <button type="submit" className="btn btn-navy" disabled={isSubmitting}>
-              Send Message
+              {isSubmitting ? 'Sending…' : 'Send Message'}
             </button>
+            {sendError && <p className="field-error" role="alert">{sendError}</p>}
           </form>
         </div>
       </section>
